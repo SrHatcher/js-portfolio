@@ -60,7 +60,7 @@ module.exports = {
         new htmlWebpackPlugin({
             inject: 'body',
             template: './public/index.html',
-            filename: './indice.html'
+            filename: './index.html'
         }),
         new MiniCssExtractPlugin({
             filename: 'assets/[name].[contenthash].css'
