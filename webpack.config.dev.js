@@ -11,7 +11,6 @@ module.exports = {
         filename: '[name].[contenthash].js'
     },
     mode: 'development',
-    watch: true,
     resolve: {
         extensions: ['.js'],
         alias: {
@@ -58,7 +57,7 @@ module.exports = {
         new htmlWebpackPlugin({
             inject: 'body',
             template: './public/index.html',
-            filename: './indice.html'
+            filename: './index.html'
         }),
         new MiniCssExtractPlugin({
             filename: 'assets/[name].[contenthash].css'
@@ -73,4 +72,15 @@ module.exports = {
         }),
         new dotenv(), 
     ],
+    devServer:{
+        static: {
+            directory: path.join(__dirname, 'dist'),
+            watch: true
+        },
+        watchFiles: path.join(__dirname, './**'),
+        compress: true,
+        historyApiFallback: true,
+        port: 8080,
+        open: true
+    }
 }
